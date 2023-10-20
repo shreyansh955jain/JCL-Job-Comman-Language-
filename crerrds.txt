@@ -1,0 +1,17 @@
+//CRERRDS JOB CLASS=A,MSGLEVEL=(1,1),MSGCLASS=A,NOTIFY=&SYSUID,         00010006
+//             PRTY=15                                                  00020006
+//*             _____________                                           00030006
+//*        >>>> CREATE A RRDS <<<<                                      00040006
+//*                                                                     00050006
+//STEP010 EXEC PGM=IDCAMS                                               00060006
+//SYSPRINT  DD SYSOUT=*                                                 00070006
+//SYSIN     DD *                                                        00080006
+               DEFINE CLUSTER (                         -               00090006
+                         NAME(ABHI.COURSE.RRDS)         -               00100011
+                         NUMBERED                       -               00110006
+                         RECSZ(200 200)                 -               00120007
+                         CISZ(4096)                     -               00130007
+                         TRACKS(20 20)                  -               00140006
+                         VOLUME(ZASYS1)                 -               00150006
+                         FREESPACE(10 10))                              00160006
+/*                                                                      00170006

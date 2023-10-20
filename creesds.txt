@@ -1,0 +1,17 @@
+//CREESDS JOB CLASS=A,MSGLEVEL=(1,1),MSGCLASS=A,NOTIFY=&SYSUID,         00010003
+//            PRTY=15                                                   00020003
+//*             ______________                                          00030003
+//*        >>>> CREATE AN ESDS <<<<                                     00040003
+//*                                                                     00050003
+//STEP010 EXEC PGM=IDCAMS                                               00060003
+//SYSPRINT DD SYSOUT=*                                                  00070003
+//SYSIN    DD *                                                         00080003
+            DEFINE CLUSTER (                  -                         00090003
+                       NAME(ABHI.COURSE.ESDS) -                         00100007
+                       NONINDEXED             -                         00110003
+                       RECSZ(200 200)         -                         00120005
+                       FREESPACE(10 10)       -                         00130003
+                       CISZ(8192)             -                         00140003
+                       TRACKS(20 20)          -                         00150003
+                       VOLUME(ZASYS1)                                   00160003
+/*                                                                      00170003

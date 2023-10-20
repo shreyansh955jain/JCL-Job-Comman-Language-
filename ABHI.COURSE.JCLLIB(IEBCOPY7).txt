@@ -1,0 +1,16 @@
+//IEBCOPY7 JOB CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01          00000102
+//*                                                                     00000202
+//*          >> EXCLUDE MEMBERS WHILE COPYING <<                        00000302
+//*                                                                     00000402
+//STEP1    EXEC PGM=IEBCOPY                                             00000502
+//DD1      DD   DSN=ABHI.COURSE.PDS2,DISP=SHR  <-- INPUT DATASET        00000602
+//DD2      DD   DSN=ABHI.COURSE.PDS3,DISP=SHR  <-- INPUT DATASET        00000702
+//DD3      DD   DSN=ABHI.COURSE.PDS4,DISP=SHR  <-- OUTPUT DATASET       00000802
+//SYSPRINT DD   SYSOUT=*                                                00000902
+//SYSOUT   DD   SYSOUT=*                                                00001002
+//SYSIN    DD   *                                                       00001102
+           COPY OUTDD=DD3     <-- DDNAME OF OUTPUT DATASET              00001202
+                 INDD=DD1     <-- DDNAME OF INPUT DATASET               00001302
+                 INDD=DD2     <-- DDNAME OF INPUT DATASET               00001402
+     EXCLUDE MEMBER=(MEMBER4,MEMBER1)  <--- MEMBERS TO IGNORE           00001502
+/*                                                                      00001602

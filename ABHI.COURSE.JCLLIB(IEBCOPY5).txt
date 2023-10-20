@@ -1,0 +1,16 @@
+//IEBCOPY5 JOB CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01          00000106
+//*                                                                     00000206
+//*           >> REPLACE MEMBER WHILE COPYING <<                        00000306
+//*                                                                     00000406
+//STEP1    EXEC PGM=IEBCOPY                                             00000506
+//DD2      DD   DSN=ABHI.COURSE.PDS2,DISP=SHR  <-- INPUT  DATASET       00000606
+//DD3      DD   DSN=ABHI.COURSE.PDS3,DISP=SHR  <-- INPUT  DATASET       00000706
+//DD4      DD   DSN=ABHI.COURSE.PDS4,DISP=SHR  <-- OUTPUT DATASET       00000806
+//SYSPRINT DD   SYSOUT=*                                                00000906
+//SYSOUT   DD   SYSOUT=*                                                00001006
+//SYSIN    DD   *                                                       00001106
+            COPY OUTDD=DD4              <--- DD NAME OF OUTPUT DATASET  00001206
+                  INDD=DD2              <--- DD NAME OF INPUT  DATASET  00001306
+                  INDD=DD3              <--- DD NAME OF INPUT  DATASET  00001406
+         SELECT MEMBER=((MEMBER2,,R))   <-- MEMBER TO REPLACE           00001506
+/*                                                                      00001606

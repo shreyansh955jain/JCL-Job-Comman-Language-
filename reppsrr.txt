@@ -1,0 +1,15 @@
+//REPPSRR JOB CLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),MSGCLASS=A,         00010001
+//             PRTY=15                                                  00020001
+//*             ___________________________                             00030001
+//*        >>>> JCL TO COPY FROM PS TO RRDS <<<<                        00040001
+//*                                                                     00050001
+//STEP010 EXEC PGM=IDCAMS                                               00060001
+//SYSPRINT DD SYSOUT=*                                                  00070001
+//*                                                                     00081002
+//PSFILE   DD DISP=SHR,DSN=ABHI.COURSE.PS                               00082003
+//RRDSFILE DD DISP=SHR,DSN=ABHI.COURSE.RRDS                             00083004
+//*                                                                     00084002
+//SYSIN    DD *                                                         00085002
+      REPRO INFILE(PSFILE) -                                            00086005
+            OUTFILE(RRDSFILE)                                           00087005
+/*                                                                      00088002

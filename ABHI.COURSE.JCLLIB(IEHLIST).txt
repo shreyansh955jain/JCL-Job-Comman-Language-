@@ -1,0 +1,11 @@
+//LIST     JOB  CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01         00000100
+//*                                                                     00000200
+//*         >> LIST a PDS <<                                            00000300
+//*                                                                     00000400
+//STEP1    EXEC PGM=IEHLIST                                             00000500
+//DD1      DD   UNIT=DISK,VOLUME=SER=PUB000,DISP=SHR                    00000600
+//SYSPRINT DD   SYSOUT=*                                                00000700
+//SYSOUT   DD   SYSOUT=*                                                00000800
+//SYSIN    DD   *                                                       00000900
+            LISTPDS DSNAME=ABHI.COURSE.PDS1,VOLUME=DISK=PUB000          00001000
+/*                                                                      00001100

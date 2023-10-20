@@ -1,0 +1,12 @@
+//IEBCOPY6 JOB CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01          00000103
+//*                                                                     00000203
+//*           >> COMPRESS A PDS <<                                      00000303
+//*                                                                     00000403
+//STEP1    EXEC PGM=IEBCOPY                                             00000503
+//DD1      DD   DSN=ABHI.COURSE.PDS5,DISP=SHR  <-- DATASET TO COMPRESS  00000603
+//SYSPRINT DD   SYSOUT=*                                                00000703
+//SYSOUT   DD   SYSOUT=*                                                00000803
+//SYSIN    DD   *                                                       00000903
+          COPY OUTDD=DD1    <--- SAME DDNAME IN INDD AND OUTDD          00001003
+                INDD=DD1                                                00001103
+/*                                                                      00001203

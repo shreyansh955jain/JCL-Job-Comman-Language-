@@ -1,0 +1,11 @@
+//SORT3    JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//STEP1    EXEC PGM=SORT                                                00030000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00040002
+//SORTOUT  DD   DSN=ABHI.COURSE.IMDB.OUTPUT,DISP=SHR                    00050002
+//SYSPRINT DD   SYSOUT=*                                                00060002
+//SYSOUT   DD   SYSOUT=*                                                00070002
+//SYSIN    DD   *                                                       00080002
+          SORT FORMAT=CH,FIELDS=(149,4,D,155,5,D)                       00090002
+/*                                                                      00100000
+

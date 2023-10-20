@@ -1,0 +1,33 @@
+//SORT28   JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030001
+//*     >>>>>>>> ASSIGNMENT: SPLIT TYPES OF FILES <<<<<<<               00040001
+//*                                                                     00050001
+//STEP1    EXEC PGM=SORT                                                00060000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070001
+//SORTOF01 DD   DSN=ABHI.COURSE.IMDB.DOC,DISP=SHR                       00080001
+//SORTOF02 DD   DSN=ABHI.COURSE.IMDB.FF,DISP=SHR                        00090001
+//SORTOF03 DD   DSN=ABHI.COURSE.IMDB.MS,DISP=SHR                        00100001
+//SORTOF04 DD   DSN=ABHI.COURSE.IMDB.MV,DISP=SHR                        00110001
+//SORTOF05 DD   DSN=ABHI.COURSE.IMDB.SF,DISP=SHR                        00120001
+//SORTOF06 DD   DSN=ABHI.COURSE.IMDB.TVE,DISP=SHR                       00130001
+//SORTOF07 DD   DSN=ABHI.COURSE.IMDB.TVM,DISP=SHR                       00140001
+//SORTOF08 DD   DSN=ABHI.COURSE.IMDB.TVS,DISP=SHR                       00150001
+//SORTOF09 DD   DSN=ABHI.COURSE.IMDB.TVSP,DISP=SHR                      00160001
+//SORTOF10 DD   DSN=ABHI.COURSE.IMDB.VID,DISP=SHR                       00170001
+//SYSPRINT DD   SYSOUT=*                                                00180001
+//SYSOUT   DD   SYSOUT=*                                                00190001
+//SYSIN    DD   *                                                       00200001
+          OPTION COPY                                                   00210001
+          OUTFIL FILES=01,INCLUDE=(89,14,CH,EQ,C'Documentary')          00220001
+          OUTFIL FILES=02,INCLUDE=(89,14,CH,EQ,C'Feature Film')         00230001
+          OUTFIL FILES=03,INCLUDE=(89,14,CH,EQ,C'Mini-series')          00240001
+          OUTFIL FILES=04,INCLUDE=(89,14,CH,EQ,C'Music video')          00250001
+          OUTFIL FILES=05,INCLUDE=(89,14,CH,EQ,C'Short Film')           00260001
+          OUTFIL FILES=06,INCLUDE=(89,14,CH,EQ,C'TV Episode')           00270001
+          OUTFIL FILES=07,INCLUDE=(89,14,CH,EQ,C'TV Movie')             00280001
+          OUTFIL FILES=08,INCLUDE=(89,14,CH,EQ,C'TV Series')            00290001
+          OUTFIL FILES=09,INCLUDE=(89,14,CH,EQ,C'TV Special')           00300001
+          OUTFIL FILES=10,INCLUDE=(89,14,CH,EQ,C'Video')                00310001
+/*                                                                      00320000
+

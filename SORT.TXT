@@ -1,0 +1,14 @@
+//SORT1    JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030013
+//*           >>>>>  SORT BY RELEASE YEAR   <<<<<<<<<                   00040013
+//*                                                                     00050013
+//STEP1    EXEC PGM=SORT                                                00060013
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070013
+//SORTOUT  DD   DSN=ABHI.COURSE.IMDB.OUTPUT,DISP=SHR                    00080013
+//SYSPRINT DD   SYSOUT=*                                                00090013
+//SYSOUT   DD   SYSOUT=*                                                00100013
+//SYSIN    DD   *                                                       00110013
+          SORT FIELDS=(1,88,CH,A)                                       00120013
+/*                                                                      00130013
+

@@ -1,0 +1,13 @@
+//SORT11   JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//STEP1    EXEC PGM=SORT                                                00030000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00040001
+//SORTOUT  DD   DSN=ABHI.COURSE.IMDB.OUTPUT,DISP=SHR                    00050001
+//SYSPRINT DD   SYSOUT=*                                                00060001
+//SYSOUT   DD   SYSOUT=*                                                00070001
+//SYSIN    DD   *                                                       00080001
+          SORT FIELDS=(149,4,BI,D)                                      00090001
+         INCLUDE COND=(149,4,BI,NE,C'2019')                             00100001
+           SUM FIELDS=(155,4,FL)                                        00110001
+/*                                                                      00120000
+

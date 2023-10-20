@@ -1,0 +1,16 @@
+//IEBCOPY4 JOB CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01          00000103
+//*                                                                     00000203
+//*           >> RENAME MEMBER WHILE COPYING <<                         00000303
+//*                                                                     00000403
+//STEP1    EXEC PGM=IEBCOPY                                             00000503
+//DD2      DD   DSN=ABHI.COURSE.PDS2,DISP=SHR  <-- INPUT  DATASET       00000603
+//DD3      DD   DSN=ABHI.COURSE.PDS3,DISP=SHR  <-- INPUT  DATASET       00000703
+//DD4      DD   DSN=ABHI.COURSE.PDS4,DISP=SHR  <-- OUTPUT DATASET       00000803
+//SYSPRINT DD   SYSOUT=*                                                00000903
+//SYSOUT   DD   SYSOUT=*                                                00001003
+//SYSIN    DD   *                                                       00001103
+            COPY OUTDD=DD4              <--- DD NAME OF OUTPUT DATASET  00001203
+                  INDD=DD2              <--- DD NAME OF INPUT  DATASET  00001303
+                  INDD=DD3              <--- DD NAME OF INPUT  DATASET  00001403
+         SELECT MEMBER=((MEMBER1,NEW1),MEMBER2) <-- MEMBER TO RENAME    00001503
+/*                                                                      00001603

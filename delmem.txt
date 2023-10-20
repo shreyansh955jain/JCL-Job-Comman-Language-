@@ -1,0 +1,11 @@
+//DELMEM JOB CLASS=A,PRTY=15,MSGCLASS=A,MSGLEVEL=(1,1),NOTIFY=&SYSUID   00020001
+//********************************************************************* 00030000
+//*****        JCL TO DELETE A PDS DATASET MEMBER                       00040001
+//********************************************************************* 00050000
+//STEP010 EXEC PGM=IDCAMS                                               00060001
+//DD1     DD   DSN=ABHI.COURSE.PDS,                                     00070000
+//             DISP=SHR                                                 00080001
+//SYSPRINT DD   SYSOUT=*                                                00081001
+//SYSIN   DD   *                                                        00082001
+      DELETE 'ABHI.COURSE.PDS(MEMBER1)' FILE(DD1)                       00083001
+/*                                                                      00090000

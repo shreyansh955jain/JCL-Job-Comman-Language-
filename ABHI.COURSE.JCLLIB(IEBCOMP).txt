@@ -1,0 +1,12 @@
+//IEBCOMP JOB CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01           00000108
+//*                                                                     00000208
+//*              >> COMPARE TWO PS DATASETS <<                          00000308
+//*                                                                     00000408
+//STEP1    EXEC PGM=IEBCOMPR                                            00000508
+//SYSUT1   DD   DSN=ABHI.COURSE.PS1,DISP=SHR  <--- DATASETS TO COMPARE  00000608
+//SYSUT2   DD   DSN=ABHI.COURSE.PS2,DISP=SHR  <--- DATASETS TO COMPARE  00000708
+//SYSPRINT DD   SYSOUT=*                                                00000808
+//SYSOUT   DD   SYSOUT=*                                                00000908
+//SYSIN    DD   *                                                       00001008
+            COMPARE TYPORG=PS   <----- FILE IS PS                       00001108
+/*                                                                      00001208

@@ -1,0 +1,15 @@
+//CRELDS JOB CLASS=A,MSGLEVEL=(1,1),MSGCLASS=A,NOTIFY=&SYSUID,          00010005
+//           PRTY=15                                                    00020005
+//*             ____________                                            00030005
+//*        >>>> CREATE A LDS <<<<                                       00040005
+//*                                                                     00050005
+//STEP010 EXEC PGM=IDCAMS                                               00060005
+//SYSPRINT  DD SYSOUT=*                                                 00070005
+//SYSIN     DD *                                                        00080005
+            DEFINE CLUSTER (                                -           00090005
+                      NAME(ABHI.COURSE.LDS)                 -           00100006
+                      LINEAR                                -           00110005
+                      CISZ(4096)                            -           00120005
+                      TRACKS(20 20)                         -           00130005
+                      VOLUME(ZASYS1)                                    00140005
+/*                                                                      00150005

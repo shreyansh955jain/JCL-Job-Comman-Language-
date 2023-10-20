@@ -1,0 +1,13 @@
+//CREGDG  JOB CLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),MSGCLASS=A,         00020000
+//             PRTY=15                                                  00030000
+//*****************************************************************     00050000
+//**********   JCL TO CREATE A GDG                                      00060000
+//*****************************************************************     00070000
+//STEP010 EXEC PGM=IDCAMS                                               00110000
+//SYSPRINT DD SYSOUT=*                                                  00120000
+//SYSIN    DD *                                                         00130000
+      DEFINE GDG(NAME(BANK.CUSTOMER.MONTHLY)    -                       00140000
+             LIMIT(12)                           -                      00150000
+             NOEMPTY                             -                      00160000
+             SCRATCH                                                    00170000
+/*                                                                      00180000

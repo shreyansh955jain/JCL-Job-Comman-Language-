@@ -1,0 +1,19 @@
+//SORT25   JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030004
+//*          >>>>>>>>  SPLIT FILE BASED ON CONDITION  <<<<<<<           00040004
+//*                                                                     00050004
+//STEP1    EXEC PGM=SORT                                                00060000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070004
+//SORTOF01 DD   DSN=ABHI.COURSE.IMDB.Y2017,DISP=SHR                     00080004
+//SORTOF02 DD   DSN=ABHI.COURSE.IMDB.Y2018,DISP=SHR                     00090004
+//SORTOF03 DD   DSN=ABHI.COURSE.IMDB.Y2019,DISP=SHR                     00100004
+//SYSPRINT DD   SYSOUT=*                                                00110004
+//SYSOUT   DD   SYSOUT=*                                                00120004
+//SYSIN    DD   *                                                       00130004
+          OPTION COPY                                                   00140004
+          OUTFIL FILES=01,INCLUDE=(149,4,CH,EQ,C'2017')                 00150004
+          OUTFIL FILES=02,INCLUDE=(149,4,CH,EQ,C'2018')                 00160004
+          OUTFIL FILES=03,INCLUDE=(149,4,CH,EQ,C'2019')                 00170004
+/*                                                                      00180000
+

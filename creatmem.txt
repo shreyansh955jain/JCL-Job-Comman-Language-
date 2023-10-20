@@ -1,0 +1,11 @@
+//CREATMEM JOB CLASS=A,PRTY=15,MSGCLASS=A,MSGLEVEL=(1,1),NOTIFY=&SYSUID 00020001
+//********************************************************************* 00030001
+//*****        JCL TO CREATE A PDS DATASET MEMBER                       00040001
+//********************************************************************* 00050001
+//STEP010 EXEC PGM=IEBGENER                                             00060001
+//SYSUT1 DD *                                                           00070001
+//SYSUT2 DD DSN=ABHI.COURSE.PDS(MEMBER1),                               00070101
+//      DISP=SHR                                                        00080001
+//SYSIN DD DUMMY                                                        00090001
+//SYSPRINT DD SYSOUT=*                                                  00100001
+/*                                                                      00110001

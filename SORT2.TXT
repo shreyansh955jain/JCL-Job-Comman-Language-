@@ -1,0 +1,15 @@
+//SORT2    JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030002
+//*        >>>>>>  SORT MULTIPLE FIELDS <<<<<                           00040002
+//*                                                                     00050002
+//STEP1    EXEC PGM=SORT                                                00060002
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070002
+//SORTOUT  DD   DSN=ABHI.COURSE.IMDB.OUTPUT,DISP=SHR                    00080002
+//SYSPRINT DD   SYSOUT=*                                                00090002
+//SYSOUT   DD   SYSOUT=*                                                00100002
+//SYSIN    DD   *                                                       00110002
+          SORT FIELDS=(89,14,CH,D,                                      00120002
+                   155,4,CH,D)                                          00130002
+/*                                                                      00140002
+

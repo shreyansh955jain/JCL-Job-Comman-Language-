@@ -1,0 +1,14 @@
+//SORT4    JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030003
+//*            >>>>>>>>> COPY A DATASET <<<<<<<<<<<<<<<                 00040003
+//*                                                                     00050003
+//STEP1    EXEC PGM=SORT                                                00060000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070003
+//SORTOUT  DD   DSN=ABHI.COURSE.IMDB.OUTPUT,DISP=SHR                    00080003
+//SYSPRINT DD   SYSOUT=*                                                00090003
+//SYSOUT   DD   SYSOUT=*                                                00100003
+//SYSIN    DD   *                                                       00110003
+             OPTION COPY                                                00120003
+/*                                                                      00130000
+

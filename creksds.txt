@@ -1,0 +1,18 @@
+//CREKSDS JOB CLASS=A,MSGLEVEL=(1,1),MSGCLASS=A,NOTIFY=&SYSUID,         00010007
+//            PRTY=15                                                   00020007
+//*             _____________                                           00040007
+//*        >>>> CREATE A KSDS <<<<                                      00050007
+//*                                                                     00060007
+//STEP010 EXEC PGM=IDCAMS                                               00070007
+//SYSPRINT DD SYSOUT=*                                                  00080007
+//SYSIN    DD *                                                         00090007
+           DEFINE CLUSTER(                 -                            00100007
+                  NAME(ABHI.COURSE.KSDS5)  -                            00110012
+                  INDEXED                  -                            00120007
+                  KEYS(5 0)                -                            00130007
+                  RECSZ(200 200)           -                            00140009
+                  FREESPACE(10 20)         -                            00150007
+                  TRACKS(50 30)            -                            00160007
+                  CISZ(4096)               -                            00170007
+                  VOLUME(ZASYS1))                                       00180007
+/*                                                                      00190007

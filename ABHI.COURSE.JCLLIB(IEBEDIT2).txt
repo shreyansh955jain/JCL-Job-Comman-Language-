@@ -1,0 +1,13 @@
+//EDIT1    JOB  CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01         00000100
+//*                                                                     00000200
+//*         >> copy steps using include and exclude <<                  00000300
+//*                                                                     00000400
+//STEP1    EXEC PGM=IEBEDIT                                             00000500
+//SYSUT1   DD   DSN=ABHI.COURSE.PS1,DISP=SHR                            00000600
+//SYSUT2   DD   DSN=ABHI.COURSE.PS3,DISP=SHR                            00000700
+//SYSPRINT DD   SYSOUT=*                                                00000800
+//SYSOUT   DD   SYSOUT=*                                                00000900
+//SYSIN    DD   *                                                       00001000
+               EDIT START=COPY1,TYPE=EXCLUDE,STEPNAME=STEPA             00001102
+               EDIT START=COPY2,TYPE=INCLUDE,STEPNAME=STEPC             00001202
+/*                                                                      00001300

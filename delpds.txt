@@ -1,0 +1,8 @@
+//DELPS JOB CLASS=A,PRTY=15,MSGCLASS=A,MSGLEVEL=(1,1),NOTIFY=&SYSUID    00020000
+//********************************************************************* 00030000
+//*****        JCL TO DELETE A PDS DATASET                              00040001
+//********************************************************************* 00050000
+//STEP010 EXEC PGM=IEFBR14                                              00060000
+//DD1     DD   DSN=ABHI.COURSE.PDS,                                     00070001
+//             DISP=(OLD,DELETE,DELETE)                                 00080000
+/*                                                                      00090000

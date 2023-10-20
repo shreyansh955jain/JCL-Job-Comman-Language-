@@ -1,0 +1,15 @@
+//REPESES JOB CLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),MSGCLASS=A,         00010000
+//             PRTY=15                                                  00020000
+//*             _____________________________                           00030000
+//*        >>>> JCL TO COPY FROM ESDS TO ESDS <<<<                      00040000
+//*                                                                     00050000
+//STEP010 EXEC PGM=IDCAMS                                               00060000
+//SYSPRINT DD SYSOUT=*                                                  00070000
+//*                                                                     00080000
+//ESFILE  DD DISP=SHR,DSN=ABHI.COURSE.ESDS                              00090000
+//ESFILE1 DD DISP=SHR,DSN=ABHI.COURSE.ESDS1                             00100000
+//*                                                                     00110000
+//SYSIN    DD *                                                         00120000
+      REPRO INFILE(ESFILE) -                                            00130000
+            OUTFILE(ESFILE1)                                            00140000
+/*                                                                      00150000

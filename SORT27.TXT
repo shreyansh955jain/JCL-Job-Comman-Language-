@@ -1,0 +1,17 @@
+//SORT27   JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030002
+//*   >>>>>>>>>> SPLIT A DATASET INTO EQUAL PARTS <<<<<<<<<<            00040002
+//*                                                                     00050002
+//STEP1    EXEC PGM=SORT                                                00060000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070002
+//SORTOF01 DD   DSN=ABHI.COURSE.IMDB.Y2017,DISP=SHR                     00080002
+//SORTOF02 DD   DSN=ABHI.COURSE.IMDB.Y2018,DISP=SHR                     00090002
+//*ORTOF03 DD   DSN=ABHI.COURSE.IMDB.Y2019,DISP=SHR                     00100002
+//SYSPRINT DD   SYSOUT=*                                                00110002
+//SYSOUT   DD   SYSOUT=*                                                00120002
+//SYSIN    DD   *                                                       00130002
+          OPTION COPY                                                   00140002
+          OUTFIL FILES=(01,02),SPLIT                                    00150002
+/*                                                                      00160000
+

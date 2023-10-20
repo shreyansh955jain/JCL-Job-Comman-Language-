@@ -1,0 +1,11 @@
+//IEBCOPY1 JOB CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01          00000102
+//*                                                                     00000201
+//*         >> COPY ONE PDS TO ANOTHER USING SYSUT <<                   00000301
+//*                                                                     00000401
+//STEP1    EXEC PGM=IEBCOPY                                             00000501
+//SYSUT1   DD   DSN=ABHI.COURSE.PDS2,DISP=SHR  <--- INPUT DATASET       00000603
+//SYSUT2   DD   DSN=ABHI.COURSE.PDS3,DISP=SHR  <--- OUTPUT DATASET      00000703
+//SYSPRINT DD   SYSOUT=*                                                00000801
+//SYSOUT   DD   SYSOUT=*                                                00000901
+//SYSIN    DD   DUMMY                                                   00001001
+/*                                                                      00001101

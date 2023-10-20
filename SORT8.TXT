@@ -1,0 +1,16 @@
+//SORT8    JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030002
+//*       >>>>>> SORT WITH OMIT CONDITION <<<<<<<                       00040002
+//*                                                                     00050002
+//STEP1    EXEC PGM=SORT                                                00060000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070002
+//SORTOUT  DD   DSN=ABHI.COURSE.IMDB.OUTPUT,DISP=SHR                    00080002
+//SYSPRINT DD   SYSOUT=*                                                00090002
+//SYSOUT   DD   SYSOUT=*                                                00100002
+//SYSIN    DD   *                                                       00110002
+           SORT FIELDS=(1,88,CH,A)                                      00120002
+           OMIT COND=(149,4,CH,LT,C'2010',AND,                          00130002
+                      155,4,CH,LT,C'7.0')                               00140002
+/*                                                                      00150000
+

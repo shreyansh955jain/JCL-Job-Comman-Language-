@@ -1,0 +1,12 @@
+//PROG     JOB  CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01         00000101
+//*                                                                     00000200
+//*         >> scratch, uncatlg a Datast <<                             00000300
+//*                                                                     00000400
+//STEP1    EXEC PGM=IEHPROGM                                            00000500
+//DD1      DD   UNIT=DISK,VOLUME=SER=PUB001,DISP=SHR                    00000600
+//SYSPRINT DD   SYSOUT=*                                                00000700
+//SYSOUT   DD   SYSOUT=*                                                00000800
+//SYSIN    DD   *                                                       00000900
+          SCRATCH DSNAME=ABHI.COURSE.PS0,VOL=DISK=PUB001                00001000
+          UNCATLG DSNAME=ABHI.COURSE.PS0                                00001100
+/*                                                                      00001200

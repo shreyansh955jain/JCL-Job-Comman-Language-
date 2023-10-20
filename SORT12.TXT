@@ -1,0 +1,15 @@
+//SORT12   JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030005
+//*        >>>>>> OUTREC ONLY SPECIFIC COLUMNS <<<<<<                   00040005
+//*                                                                     00050005
+//STEP1    EXEC PGM=SORT                                                00060000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070005
+//SORTOUT  DD   DSN=ABHI.COURSE.IMDB.OUTPUT,DISP=SHR                    00080005
+//SYSPRINT DD   SYSOUT=*                                                00090005
+//SYSOUT   DD   SYSOUT=*                                                00100005
+//SYSIN    DD   *                                                       00110005
+          SORT FIELDS=(149,4,BI,D)                                      00120005
+          OUTREC BUILD=(9:149,4,30:155,4)                               00130005
+/*                                                                      00140000
+

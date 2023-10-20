@@ -1,0 +1,16 @@
+//REPPSKS JOB CLASS=A,MSGLEVEL=(1,1),MSGCLASS=A,NOTIFY=&SYSUID,         00010007
+//            PRTY=15                                                   00020007
+//*               _____________________                                 00030007
+//*        >>>>   REPRO FROM PS TO KSDS   <<<<                          00040007
+//*                                                                     00050007
+//STEP010 EXEC PGM=IDCAMS                                               00060007
+//SYSPRINT DD SYSOUT=*                                                  00070007
+//SYSOUT   DD SYSOUT=*                                                  00080007
+//*                                                                     00090007
+//PSFILE   DD DISP=SHR,DSN=ABHI.COURSE.PS                               00100007
+//KSDSFILE DD DISP=SHR,DSN=ABHI.COURSE.KSDS                             00110007
+//*                                                                     00120007
+//SYSIN    DD *                                                         00130007
+               REPRO INFILE(PSFILE)         -                           00140007
+                     OUTFILE(KSDSFILE)                                  00150007
+/*                                                                      00160007

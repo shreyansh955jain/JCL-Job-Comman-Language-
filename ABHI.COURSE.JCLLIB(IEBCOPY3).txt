@@ -1,0 +1,16 @@
+//IEBCOPY3 JOB CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01          00000104
+//*                                                                     00000204
+//*          >> SELECTIVE COPY <<                                       00000304
+//*                                                                     00000404
+//STEP1    EXEC PGM=IEBCOPY                                             00000504
+//DD1      DD   DSN=ABHI.COURSE.PDS2,DISP=SHR  <--- INPUT DATASET       00000604
+//DD2      DD   DSN=ABHI.COURSE.PDS3,DISP=SHR  <--- INPUT DATASET       00000704
+//DD3      DD   DSN=ABHI.COURSE.PDS4,DISP=SHR  <--- OUTPUT DATASET      00000804
+//SYSPRINT DD   SYSOUT=*                                                00000904
+//SYSOUT   DD   SYSOUT=*                                                00001004
+//SYSIN    DD   *                                                       00001104
+          COPY OUTDD=DD3       <--- DD NAME OF OUTPUT DATASET           00001204
+                INDD=DD1       <--- DD NAME OF INPUT DATASET            00001304
+                INDD=DD2       <--- DD NAME OF INPUT DATASET            00001404
+       SELECT MEMBER=(MEMBER2,MEMBER4,MEMBER5) <-- MEMBERS TO BE COPIED 00001504
+/*                                                                      00001604

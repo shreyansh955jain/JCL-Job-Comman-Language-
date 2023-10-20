@@ -1,0 +1,17 @@
+//SORT26   JOB  CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,MSGLEVEL=(1,1),       00010000
+//             PRTY=15                                                  00020000
+//*                                                                     00030005
+//*         >>>>>>>> MULTIPLE COPIES USING OUTFIL <<<<<<<               00040005
+//*                                                                     00050005
+//STEP1    EXEC PGM=SORT                                                00060000
+//SORTIN   DD   DSN=ABHI.COURSE.IMDB,DISP=SHR                           00070005
+//SORTOF01 DD   DSN=ABHI.COURSE.IMDB.Y2017,DISP=SHR                     00080005
+//SORTOF02 DD   DSN=ABHI.COURSE.IMDB.Y2018,DISP=SHR                     00090005
+//SORTOF03 DD   DSN=ABHI.COURSE.IMDB.Y2019,DISP=SHR                     00100005
+//SYSPRINT DD   SYSOUT=*                                                00110005
+//SYSOUT   DD   SYSOUT=*                                                00120005
+//SYSIN    DD   *                                                       00130005
+          OPTION COPY                                                   00140005
+          OUTFIL FILES=(01,02,03)                                       00150005
+/*                                                                      00160000
+

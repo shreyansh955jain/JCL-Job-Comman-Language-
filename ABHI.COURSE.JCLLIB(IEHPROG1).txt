@@ -1,0 +1,11 @@
+//PROG1    JOB  CLASS=A,MSGCLASS=H,MSGLEVEL=(1,1),NOTIFY=HERC01         00000101
+//*                                                                     00000200
+//*         >> uncatlg a Datast <<                                      00000301
+//*                                                                     00000400
+//STEP1    EXEC PGM=IEHPROGM                                            00000500
+//DD1      DD   UNIT=DISK,VOLUME=SER=PUB000,DISP=SHR                    00000601
+//SYSPRINT DD   SYSOUT=*                                                00000700
+//SYSOUT   DD   SYSOUT=*                                                00000800
+//SYSIN    DD   *                                                       00000900
+          UNCATLG DSNAME=ABHI.COURSE.PS1                                00001001
+/*                                                                      00001100
